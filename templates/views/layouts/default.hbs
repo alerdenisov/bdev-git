@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Markup Main Page</title>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,400,600,300&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="/styles/site.min.css"/>
+
+</head>
+<body>
+    <div class="layout app fluid vertical stretch">
+        <main class="flex layout horizontal">
+            <aside class="layout vertical stretch">
+                <div class="logo">
+                    <img src="/images/logo.png" alt=""/>
+                </div>
+                <nav class="flex layout horizontal stretch">
+                    <ul class="flex layout vertical stretch">
+                        <li class="live">
+                            <a href="#">
+                                <span class="icon-microphone"></span> Live now
+                            </a>
+                        </li>
+                        <li class="divider">Бессвязный девелоп</li>
+                        <li><a href="#"><span class="icon-play"></span> Стримы</a></li>
+                        <li><a href="#"><span class="icon-folder"></span> Проекты</a></li>
+                        <li><a href="#"><span class="icon-heart"></span> Люди</a></li>
+                        <li><a href="#"><span class="icon-book"></span> Блог</a></li>
+                    </ul>
+                </nav>
+                <nav class="layout horizontal center profile">
+									<ul class="flex layout vertical stretch">
+										{{#if user}}
+										<li class="divider">Привет, <b>{{user.name.first}} {{user.name.last}}</b>!</li>
+										<li><a href="{{profileUrl user._id}}"><span class="icon-user"></span> Профиль</a></li>
+										{{else}}
+										<li class="divider">Привет, регистрируйся!</li>
+										<li><a href="/keystone/signin"><span class="icon-user"></span> Вход</a></li>
+										{{/if}}
+									</ul>
+                </nav>
+            </aside>
+            <div id="content" class="flex layout vertical scroll">
+                <div class="project layout horizontal flex stretch">
+									{{{body}}}
+                </div>
+            </div>
+
+        </main>
+        <footer class="footer">
+            <div class="chat layout horizontal center">
+                <div class="chat__accent">ЧАТ:</div>
+                <div class="chat__input flex">
+                    <input id="chat" class="chat__input_field" type="text"/>
+                </div>
+                <button class="chat__button">
+                    <span class="icon-speech-bubble"></span>
+                </button>
+            </div>
+        </footer>
+    </div>
+
+<script type="text/javascript" src="../assets/js/script.js"></script>
+<link rel="stylesheet" href="/icons/style.css"/>
+</body>
+</html>

@@ -1,0 +1,62 @@
+.project {
+  &__summary {
+    min-width: 400px;
+    background-color: #000000;
+    background-size: cover;
+    background-position: center center;
+
+    padding: 80px;
+
+    &_title {
+      text-shadow: 0 2px 1px rgba(0,0,0,0.5);
+    }
+    &_description {
+      text-shadow: 0 1px 0px rgba(0,0,0,0.5);
+    }
+
+    .avatar {
+      margin-left: -10px;
+      margin-bottom: 20px;
+    }
+  }
+
+  &__info {
+    min-width: 250px;
+    background-color: white;
+    color: @color-dark;
+  }
+
+  &__comments {
+    min-width: 350px;
+    max-width: 450px;
+
+    background-color: #eff0f4;
+  }
+
+  &__favorite {
+    font-size: 32px;
+    padding: 10px;
+    background-color: transparent;
+
+    margin-left: 15px;
+
+    transition: all 0.2s ease;
+
+    &:hover {
+      background-color: transparent;
+      color: #df345c;
+    }
+
+    &:active {
+      box-shadow: none;
+    }
+
+    &:active:not(.favorited) {
+      color: darken(#df345c, 5%);
+    }
+
+    &.favorited {
+      color: #df345c;
+    }
+  }
+}

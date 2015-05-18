@@ -1,0 +1,52 @@
+@nav-margin-top: 35px;
+@nav-link-font-color: @color-lighter;
+@nav-link-font-weight: @acnt-font-weight;
+@nav-link-font-trans: uppercase;
+
+
+.logo {
+  &-tiny {
+    margin-left: -16px;
+    margin-right: -16px;
+  }
+}
+
+nav {
+  margin-top: @nav-margin-top;
+
+  ul {
+    li {
+
+      &.divider {
+        padding-top: 10px;
+        font-size: 80%;
+        opacity: 0.5;
+      }
+
+
+      a {
+        padding: 20px 0;
+        display: block;
+        color: @nav-link-font-color;
+        font-weight: @nav-link-font-weight;
+        text-transform: @nav-link-font-trans;
+        font-size: 18px;
+
+        span {
+//          position: relative;
+//          top: 2px;
+        }
+      }
+
+      &.live {
+        a {
+          color: @color-orange;
+
+          &:hover {
+            color: lighten(@color-orange, 5%);
+          }
+        }
+      }
+    }
+  }
+}

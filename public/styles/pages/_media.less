@@ -1,0 +1,30 @@
+.media-square(@width: 100px) {
+  max-width: @width;
+//  height: @width / 1.77779;
+}
+
+.masonry {
+  &__list {
+    &_item {
+      overflow: hidden;
+      float: left;
+      position: relative;
+
+      img {
+        display: block;
+        width: 100%;
+        position: absolute;
+        z-index: 0;
+      }
+
+      * {
+        z-index: 1;
+        position: relative;
+      }
+//      float: left;
+//      img {
+//        display: block;
+//      }
+    }
+  }
+}

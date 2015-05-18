@@ -1,0 +1,33 @@
+@chat-accent-margin-right:    15px;
+@chat-accent-font-size:       10px;
+
+.chat {
+  &__accent {
+    font-size: @chat-accent-font-size;
+    font-weight: 600;
+    margin-right: @chat-accent-margin-right;
+  }
+  &__input {
+
+    &_field {
+      font-size: @acnt-font-size;
+      font-weight: @base-font-weight;
+      line-height: 45px;
+      color: @color-lighter;
+      background: transparent;
+      margin: 0;
+      border: 0;
+      border-bottom: 1px solid lighten(@color-dark, 15%);
+    }
+  }
+
+  &__button {
+    width: 68px;
+    height: 68px;
+
+    font-size: 24px;
+
+    margin: -10px;
+    margin-left: 10px;
+  }
+}

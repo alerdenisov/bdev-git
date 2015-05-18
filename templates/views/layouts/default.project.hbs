@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Markup Main Page</title>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,400,600,300&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="/styles/site.min.css"/>
+
+</head>
+<body>
+    <div class="layout app fluid vertical stretch">
+        <main class="flex layout horizontal">
+            <aside class="layout vertical stretch">
+                <div class="logo">
+                    <img src="../assets/images/logo.png" alt=""/>
+                </div>
+                <nav class="flex layout horizontal stretch">
+                    <ul class="flex layout vertical stretch">
+                        <li class="live">
+                            <a href="#">
+                                <span class="icon-microphone"></span> Live now
+                            </a>
+                        </li>
+                        <li class="divider">Бессвязный девелоп</li>
+                        <li><a href="#"><span class="icon-play"></span> Стримы</a></li>
+                        <li><a href="#"><span class="icon-folder"></span> Проекты</a></li>
+                        <li><a href="#"><span class="icon-heart"></span> Люди</a></li>
+                        <li><a href="#"><span class="icon-book"></span> Блог</a></li>
+                    </ul>
+                </nav>
+                <div class="layout horizontal center profile">
+                    <div>
+                        Profile
+                    </div>
+                </div>
+            </aside>
+            <div id="content" class="flex layout vertical scroll">
+                <div class="project layout horizontal flex stretch">
+                    <div class="project__summary layout vertical stretch pack-end start" style="background-image: url(project-1.jpg)">
+                        <div class="avatar avatar_big">
+                            <img src="avatar-1.jpg" alt=""/>
+                        </div>
+                        <div class="layout horizontal center">
+                            <div class="flex">
+                                <h2 class="project__summary_title">
+                                    12 игр за 12 месяцев
+                                </h2>
+                                <div class="project__summary_description">
+                                    <p>Проект Алера по разработке серии небольших игр</p>
+                                </div>
+                            </div>
+                            <button class="project__favorite">
+                                <span class="icon-heart"></span>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="project__comments scroll">
+                        <div class="comments__list layout vertical">
+                            <div class="comments__item layout horizontal center">
+                                <div class="avatar avatar_small"><img src="avatar-1.jpg" alt=""/></div>
+                                <div class="comments__item_content flex">
+                                    <p>
+                                        Отличный проект!
+                                    </p>
+                                </div>
+                                <button class="comments__item_like">
+                                    <span class="icon-heart"></span>
+                                </button>
+                            </div>
+                            <div class="comments__item layout horizontal center">
+                                <div class="avatar avatar_small"><img src="avatar-1.jpg" alt=""/></div>
+                                <div class="comments__item_content flex">
+                                    <p>
+                                        Мне кажется не хватает раздела медиа-файлов со скринами и видосами. Админы, добавьте плз!
+                                    </p>
+                                </div>
+                                <button class="comments__item_like">
+                                    <span class="icon-heart"></span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project__masonry layout fluid vertical stretch">
+                        <div class="masonry__list flex">
+                            <div class="masonry__list_item item_mega wp_item wp_item__video">
+                                <img src="image-b-1.jpg" alt=""/>
+                                <div class="wp_item__data layout vertical stretch fluid h100">
+                                    <div class="flex"></div>
+                                    <div class="layout horizontal pack-center">
+                                        <div class="video__play"><span class="icon-play"></span></div>
+                                    </div>
+                                    <div class="flex"></div>
+                                    <h4>Запись стрима 20 сентрябся</h4>
+                                    <div class="wp_item__data_meta layout horizontal stretch">
+                                        <p class="wp_item__data_date">3 октября</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="masonry__list_item item_high wp_item">
+                                <img src="image-b-2.jpg" alt=""/>
+                                <div class="wp_item__data layout vertical stretch pack-end fluid h100">
+                                    <div class="user layout horizontal center">
+                                        <div class="avatar avatar_small">
+                                            <img src="avatar-1.jpg" alt=""/>
+                                        </div>
+                                        <a class="user__name" href="#">Алер Денисов</a>
+                                    </div>
+                                    <h3>Отчет о первом дне</h3>
+                                    <div class="wp_item__data_meta layout horizontal stretch">
+                                        <p class="wp_item__data_date">3 октября</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="masonry__list_item item_high wp_item wp_item__video">
+                                <img src="image-1.jpg" alt=""/>
+                                <div class="wp_item__data layout vertical stretch fluid h100">
+                                    <div class="flex"></div>
+                                    <div class="layout horizontal pack-center">
+                                        <div class="video__play"><span class="icon-play"></span></div>
+                                    </div>
+                                    <div class="flex"></div>
+                                    <h4>Запись стрима 20 сентрябся</h4>
+                                    <div class="wp_item__data_meta layout horizontal stretch">
+                                        <p class="wp_item__data_date">3 октября</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </main>
+        <footer class="footer">
+            <div class="chat layout horizontal center">
+                <div class="chat__accent">ЧАТ:</div>
+                <div class="chat__input flex">
+                    <input id="chat" class="chat__input_field" type="text"/>
+                </div>
+                <button class="chat__button">
+                    <span class="icon-speech-bubble"></span>
+                </button>
+            </div>
+        </footer>
+    </div>
+
+<script type="text/javascript" src="../assets/js/script.js"></script>
+<link rel="stylesheet" href="../assets/icons/style.css"/>
+</body>
+</html>
