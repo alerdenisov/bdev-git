@@ -16,7 +16,7 @@
 | Would you like to use LESS or SASS for stylesheets? | less |
 | Would you like to include a Blog?	| Yes |
 | Would you like to include an Image Gallery?	| Yes |
-| Would you like to include a Contact Form? 	| Yes |
+| Would you like to include a Contact Form? 	| No |
 | What would you like to call the User model?	| Yes |
 | Enter an email address for the first Admin user: 	| info@bdev.tv |
 | Enter a password for the first Admin user:	| Admin |
@@ -35,6 +35,6 @@ git checkout -t origin/master
 git reset --hard origin/master
 git status
 ```
-* По очереди удалите все лишние файлы из статуса: ```git rm PATH/TO/FILE```
+* По очереди удалите все лишние файлы из статуса: ```rm -rf PATH/TO/FILE```
 * Запустите mongod
 * Запустите сервер сайта: ```node keystone```
