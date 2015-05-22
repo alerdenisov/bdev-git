@@ -20,8 +20,9 @@ ChatMessage.prototype.getHtml = function () {
 
 ChatMessage.prototype.getAvatarSrc = function () {
 	var url = "";
-	if(this.author && this.author.avatar && this.author.public_id) {
-		url = $.cloudinary.url(this.author.avatar.public_id, {width: 100, height: 100, crop: "fill"});
+	if(this.author && this.author.avatar && this.author.avatar.public_id) {
+		var name = String.format("{0}.{1}", this.author.avatar.public_id, this.author.avatar.format);
+		url = $.cloudinary.url(name, {width: 100, height: 100, crop: "fill"});
 	}
     return url;
 };
@@ -64,6 +65,7 @@ var Chat = function () {
         // listen socket messages
         chat.socket.on('chat.message', function (user, msg) {
             // work with chat message received from server
+			console.log(user);
             chat.addMessage(user, msg); 
         });
     }.bind(this))();
@@ -185,7 +187,6 @@ $(function () {
             // load by ajax last 10 messages
 			var container = $(this).find('.chat-panel__list');
             var tags = $(this).data('chat-tag');//.split(";");
-			console.log(tags);
             var url = "/json/chat";
     
             var query = {
@@ -195,10 +196,8 @@ $(function () {
             if (tags) { query["tags"] = tags; }
     
             $.get(url, query).done(function (data) {
-				console.log(data);
 				if (data.data && data.data.results) {
 					for (var i = 0; i < data.data.results.length; i++) {
-						console.log(data.data.results[i]);
 						var message = new ChatMessage(data.data.results[i].author, data.data.results[i].text);
 						container.append(message.getHtml());
 						
