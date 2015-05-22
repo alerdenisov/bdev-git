@@ -25,6 +25,7 @@ var keystone = require('keystone'),
 // Common Middleware
 keystone.pre('routes', middleware.initLocals);
 keystone.pre('render', middleware.flashMessages);
+keystone.pre('render', middleware.chatUserToken);
 
 // Import Route Controllers
 var routes = {
@@ -33,16 +34,19 @@ var routes = {
 
 // Setup Route Bindings
 exports = module.exports = function(app) {
-
 	// Views
 	app.get('/', routes.views.index);
 	app.get('/blog/:category?', routes.views.blog);
 	app.get('/blog/post/:post', routes.views.post);
 	app.get('/gallery', routes.views.gallery);
 	app.get('/profile/:userId', routes.views.profile);
+	app.get('/streams', routes.views.streams);
+    app.get('/stream/:channelId', routes.views.channel);
+    
+    // json REST api
+    app.get('/json/:name', routes.views.json);
 
-
-	// NOTE: To protect a route so that only admins can see it, use the requireUser middleware:
-	// app.get('/protected', middleware.requireUser, routes.views.protected);
+    // NOTE: To protect a route so that only admins can see it, use the requireUser middleware:
+    // app.get('/protected', middleware.requireUser, routes.views.protected);
 
 };

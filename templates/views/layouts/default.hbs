@@ -1,57 +1,72 @@
-<!doctype html>
+﻿<!doctype html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Markup Main Page</title>
     <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,400,600,300&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" href="/styles/site.min.css"/>
-
+    <link rel="stylesheet" href="/styles/site.min.css" />
+    <script>
+        var chatUserToken = "{{ chatUserToken }}";
+        var pageTags = [
+            {{#each pageTags }}
+            "{{this}}",
+            {{/each}}
+        ];
+    </script>
 </head>
 <body>
     <div class="layout app fluid vertical stretch">
         <main class="flex layout horizontal">
             <aside class="layout vertical stretch">
-                <div class="logo">
-                    <img src="/images/logo.png" alt=""/>
+                <div class="logo logo-tiny">
+                    <img src="/images/logo-tiny.png" alt="" />
+                </div>
+                <div class="logo logo-mega">
+                    <img src="/images/logo.png" alt="" />
                 </div>
                 <nav class="flex layout horizontal stretch">
                     <ul class="flex layout vertical stretch">
                         <li class="live">
-                            <a href="#">
-                                <span class="icon-microphone"></span> Live now
+                            <a href="/streams/live">
+                                <span class="icon-microphone"></span> <span class="non-shrink">Live Now</span>
                             </a>
                         </li>
                         <li class="divider">Бессвязный девелоп</li>
-                        <li><a href="#"><span class="icon-play"></span> Стримы</a></li>
-                        <li><a href="#"><span class="icon-folder"></span> Проекты</a></li>
-                        <li><a href="#"><span class="icon-heart"></span> Люди</a></li>
-                        <li><a href="#"><span class="icon-book"></span> Блог</a></li>
+                        <li><a href="/streams"><span class="icon-play"></span> <span class="non-shrink">Стримы</span></a></li>
+                        <li><a href="#"><span class="icon-folder"></span> <span class="non-shrink">Проекты</span></a></li>
+                        <li><a href="#"><span class="icon-heart"></span> <span class="non-shrink">Люди</span></a></li>
+                        <li><a href="#"><span class="icon-book"></span> <span class="non-shrink">Блог</span></a></li>
                     </ul>
                 </nav>
                 <nav class="layout horizontal center profile">
-									<ul class="flex layout vertical stretch">
-										{{#if user}}
-										<li class="divider">Привет, <b>{{user.name.first}} {{user.name.last}}</b>!</li>
-										<li><a href="{{profileUrl user._id}}"><span class="icon-user"></span> Профиль</a></li>
-										{{else}}
-										<li class="divider">Привет, регистрируйся!</li>
-										<li><a href="/keystone/signin"><span class="icon-user"></span> Вход</a></li>
-										{{/if}}
-									</ul>
+                    <ul class="flex layout vertical stretch">
+                        {{#if user}}
+                        <li class="divider">Привет, <b>{{user.name.first}} {{user.name.last}}</b>!</li>
+                        <li><a href="{{profileUrl user._id}}"><span class="icon-user"></span> <span class="non-shrink">Профиль</span></a></li>
+                        {{else}}
+                        <li class="divider">Привет, регистрируйся!</li>
+                        <li><a href="/keystone/signin"><span class="icon-user"></span> <span class="non-shrink">Вход</span></a></li>
+                        {{/if}}
+                    </ul>
                 </nav>
             </aside>
             <div id="content" class="flex layout vertical scroll">
-                <div class="project layout horizontal flex stretch">
-									{{{body}}}
+                <div class="{{pageclass}} layout horizontal flex stretch">
+                    {{{body}}}
                 </div>
             </div>
-
+            <div id="chat-panel" class="layout vertical chat-panel">
+                <div class="scroll">
+                    <div class="chat-panel__list layout vertical">
+                    </div>
+                </div>
+            </div>
         </main>
         <footer class="footer">
             <div class="chat layout horizontal center">
                 <div class="chat__accent">ЧАТ:</div>
                 <div class="chat__input flex">
-                    <input id="chat" class="chat__input_field" type="text"/>
+                    <input id="chat" class="chat__input_field" type="text" />
                 </div>
                 <button class="chat__button">
                     <span class="icon-speech-bubble"></span>
@@ -59,8 +74,13 @@
             </div>
         </footer>
     </div>
-
-<script type="text/javascript" src="../assets/js/script.js"></script>
-<link rel="stylesheet" href="/icons/style.css"/>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <!-- <script src="//cdnjs.cloudflare.com/ajax/libs/flexie/1.0.3/flexie.min.js"></script> -->
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery.isotope/2.2.0/isotope.pkgd.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/socket.io/1.3.5/socket.io.min.js"></script>
+    <script src="/vendor/jquery.nanoscroller.min.js"></script>
+    <script type="text/javascript" src="/js/script.min.js"></script>
+    <link rel="stylesheet" href="/icons/style.css" />
+    <link rel="stylesheet" href="http://css-spinners.com/css/spinner/whirly.css" type="text/css">
 </body>
 </html>

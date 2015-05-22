@@ -1,15 +1,19 @@
 {{!< default}}
-		<div class="project__summary layout vertical stretch pack-end start" style="background-image: url(project-1.jpg)">
+		{{#with data.profile.cover}}
+		<div class="project__summary layout vertical stretch pack-end start" style="background-image: url({{cloudinaryUrl width='400' height='737' crop='fill' }})">
+		{{/with}}
 				<div class="avatar avatar_big">
-						<img src="avatar-1.jpg" alt=""/>
+					{{#with data.profile.avatar}}
+					<img src="{{cloudinaryUrl width='140' height='140' crop='fill' }}" alt=""/>
+					{{/with}}
 				</div>
 				<div class="layout horizontal center">
 						<div class="flex">
 								<h2 class="project__summary_title">
-										12 игр за 12 месяцев
+									{{data.profile.name.first}} {{data.profile.name.last}}
 								</h2>
 								<div class="project__summary_description">
-										<p>Проект Алера по разработке серии небольших игр</p>
+										{{{data.profile.about.short}}}
 								</div>
 						</div>
 						<button class="project__favorite">
@@ -17,76 +21,10 @@
 						</button>
 				</div>
 		</div>
-		<div class="project__comments scroll">
-				<div class="comments__list layout vertical">
-						<div class="comments__item layout horizontal center">
-								<div class="avatar avatar_small"><img src="avatar-1.jpg" alt=""/></div>
-								<div class="comments__item_content flex">
-										<p>
-												Отличный проект!
-										</p>
-								</div>
-								<button class="comments__item_like">
-										<span class="icon-heart"></span>
-								</button>
-						</div>
-						<div class="comments__item layout horizontal center">
-								<div class="avatar avatar_small"><img src="avatar-1.jpg" alt=""/></div>
-								<div class="comments__item_content flex">
-										<p>
-												Мне кажется не хватает раздела медиа-файлов со скринами и видосами. Админы, добавьте плз!
-										</p>
-								</div>
-								<button class="comments__item_like">
-										<span class="icon-heart"></span>
-								</button>
-						</div>
-				</div>
-		</div>
-		<div class="project__masonry layout fluid vertical stretch">
-				<div class="masonry__list flex">
-						<div class="masonry__list_item item_mega wp_item wp_item__video">
-								<img src="image-b-1.jpg" alt=""/>
-								<div class="wp_item__data layout vertical stretch fluid h100">
-										<div class="flex"></div>
-										<div class="layout horizontal pack-center">
-												<div class="video__play"><span class="icon-play"></span></div>
-										</div>
-										<div class="flex"></div>
-										<h4>Запись стрима 20 сентрябся</h4>
-										<div class="wp_item__data_meta layout horizontal stretch">
-												<p class="wp_item__data_date">3 октября</p>
-										</div>
-								</div>
-						</div>
-						<div class="masonry__list_item item_high wp_item">
-								<img src="image-b-2.jpg" alt=""/>
-								<div class="wp_item__data layout vertical stretch pack-end fluid h100">
-										<div class="user layout horizontal center">
-												<div class="avatar avatar_small">
-														<img src="avatar-1.jpg" alt=""/>
-												</div>
-												<a class="user__name" href="#">Алер Денисов</a>
-										</div>
-										<h3>Отчет о первом дне</h3>
-										<div class="wp_item__data_meta layout horizontal stretch">
-												<p class="wp_item__data_date">3 октября</p>
-										</div>
-								</div>
-						</div>
-						<div class="masonry__list_item item_high wp_item wp_item__video">
-								<img src="image-1.jpg" alt=""/>
-								<div class="wp_item__data layout vertical stretch fluid h100">
-										<div class="flex"></div>
-										<div class="layout horizontal pack-center">
-												<div class="video__play"><span class="icon-play"></span></div>
-										</div>
-										<div class="flex"></div>
-										<h4>Запись стрима 20 сентрябся</h4>
-										<div class="wp_item__data_meta layout horizontal stretch">
-												<p class="wp_item__data_date">3 октября</p>
-										</div>
-								</div>
-						</div>
-				</div>
-		</div>
+
+        <div class="layout vertical chat-panel" data-chat-tag="{{ data.profile.slug }}">
+            <div class="scroll">
+                <div class="chat-panel__list layout vertical">
+                </div>
+            </div>
+        </div>

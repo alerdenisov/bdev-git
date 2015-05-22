@@ -3,6 +3,8 @@ var   gulp = require('gulp')
 		,	jshintReporter = require('jshint-stylish')
     , less = require('gulp-less')
     , csso = require('gulp-csso') // Минификация CSS
+    , concat = require('gulp-concat') // Склейка файлов
+    , uglify = require('gulp-uglify') // Минификация JS
     , rename = require('gulp-rename')
 		, watch = require('gulp-watch');
 
@@ -11,17 +13,17 @@ var   gulp = require('gulp')
  */
 var paths = {
 	'src':['./models/**/*.js','./routes/**/*.js', 'keystone.js', 'package.json'],
-	'publicjs' : [],
+	'publicjs' : [ './public/js/app/**/*.js', ],
 	'publicless': ['./public/styles/style.less']
 };
 
 // Собираем JS
-gulp.task('js-build', function() {
-    // gulp.src(paths.src)
-    //     .pipe(concat('script.min.js'))
-    //     .pipe(uglify())
-    //     .pipe(gulp.dest('./assets/js'))
-    // ;
+gulp.task('js', function() {
+    gulp.src(paths.publicjs)
+        .pipe(concat('script.min.js'))
+        // .pipe(uglify())
+        .pipe(gulp.dest('./public/js'))
+    ;
 });
 
 // Less
@@ -40,17 +42,14 @@ gulp.task('watch', function() {
 
     // Предварительная сборка проекта
     gulp.run('less-build');
-    // gulp.run('js');
+    gulp.run('js');
 
     gulp.watch('./public/styles/**/*.less', function() {
         gulp.run('less-build');
     });
-//    gulp.watch('assets/img/**/*', function() {
-//        gulp.run('images');
-//    });
-    // gulp.watch('assets/js/**/*', function() {
-        // gulp.run('js');
-    // });
+    gulp.watch('./public/js/**/*', function() {
+        gulp.run('js');
+    });
 });
 
 
