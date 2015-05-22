@@ -1,7 +1,21 @@
 ﻿$(function () {
+	var loadingHolder = function() {
+		var loadingTmpl =
+			'<div class="flex layout vertical center">' +
+			'<div class="flex"></div>' +
+			'<div class="whirly-loader center">' +
+			'Loading…'+
+			'</div>' +
+			'<div class="flex"></div>' +
+			'</div>';
+		$("#content").html(loadingTmpl);
+	};
+	
     var loadContentAsync = function(url) {
+		loadingHolder();
         $("#content").load(url + " #content > *");
-    }
+    };
+	
     $("a").livequery(
         function() {
             $(this).click(function () {
@@ -17,20 +31,8 @@
     );
 
     $(document).on({
-        ajaxStart: function () {
-            var loadingTmpl = 
-                '<div class="flex layout vertical center">' +
-                    '<div class="flex"></div>' +
-                    '<div class="whirly-loader center">' +
-                        'Loading…'+
-                    '</div>' +
-                    '<div class="flex"></div>' +
-                '</div>';
-            $("#content").html(loadingTmpl);
-        },
-         ajaxStop: function() {
-             
-        }
+        ajaxStart: function () { },
+         ajaxStop: function() { }
     });
 
     window.addEventListener('popstate', function (event) {
