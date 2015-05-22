@@ -1,0 +1,57 @@
+<div class="project__masonry layout vertical stretch">
+  <div class="masonry__list">
+    {{#each data.channels}}
+        <div class="masonry__list_item {{#if @index}}item_high{{else}}item_mega{{/if}} wp_item {{#if whiteCover}}wp_item__inverted{{/if}}">
+					{{#with cover}}
+					<img src="{{cloudinaryUrl}}" alt=""/>
+					{{/with}}
+          <div class="wp_item__data layout vertical stretch pack-end fluid h100">
+              <div class="user layout horizontal center">
+        					{{#with user.avatar}}
+                  <div class="avatar{{#if @index}} avatar_small{{/if}}"><img src="{{cloudinaryUrl width='140' height='140' crop='fill' }}" alt=""/></div>
+        					{{/with}}
+                  <a class="user__name" href="{{profileUrl user._id}}">{{ user.name.first }} {{ user.name.last }}</a>
+              </div>
+              <div class="flex"></div>
+              <div class="layout horizontal center">
+                  <div class="flex">
+                    {{#if live}}
+                    <div class="channel_live">
+                      live
+                    </div>
+                    <div class="channel_viewers">
+                      {{ viewers }}
+                    </div>
+                    {{/if}}
+                      <!-- <div>
+                          <span class="icon-star"></span>
+                          <span class="icon-star"></span>
+                          <span class="icon-star"></span>
+                          <span class="icon-star"></span>
+                          <span class="icon-star"></span>
+                      </div> -->
+                      <h3><a href="/stream/{{ _id }}">{{ title }}</a></h3>
+                      <div class="wp_item__data_meta layout horizontal stretch">
+                          <p class="wp_item__data_date">
+
+                            <!-- fsdfsdfs dfsd -->
+                          </p>
+                      </div>
+
+                      <!-- <ul class="wp_item__data_tags layout horizontal stretch">
+                          <li class="wp_item__data_tag"><a href="#">unity3d</a></li>
+                          <li class="wp_item__data_tag"><a href="#">C#</a></li>
+                          <li class="wp_item__data_tag"><a href="#">challenge</a></li>
+                          <li class="wp_item__data_tag"><a href="#">game</a></li>
+                      </ul> -->
+
+                  </div>
+                  <button class="project__favorite favorited">
+                      <span class="icon-heart"></span>
+                  </button>
+              </div>
+          </div>
+      </div>
+    {{/each}}
+  </div>
+</div>

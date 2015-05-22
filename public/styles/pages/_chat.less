@@ -1,0 +1,55 @@
+.noty_message {
+  .tag {
+	&:before {
+	  content: "#";
+	}
+  }
+}
+
+.chat-panel {
+  width: 350px;
+  background-color: #eff0f4;
+
+  &__list {
+
+	padding: 20px;
+
+	&__item {
+	  padding: 10px;
+	  background-color: white;
+	  color: @color-dark;
+	  margin-left: 10px;
+	  margin-bottom: 10px;
+
+	  .avatar {
+		margin: -10px;
+		margin-left: -27px;
+		margin-right: 10px;
+	  }
+
+	  &_like {
+		font-size: 18px;
+		background: transparent;
+		color: tomato;
+
+		&:hover {
+		  background: transparent;
+		}
+	  }
+
+	  &__content {
+		margin-right: 10px;
+
+		.tag {
+		  &::before {
+			content: "#";
+		  }
+		}
+	  }
+	}
+
+	&__more {
+	  margin: 10px 0;
+	}
+  }
+}
