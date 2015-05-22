@@ -36,5 +36,6 @@ git reset --hard origin/master
 git status
 ```
 * По очереди удалите все лишние файлы из статуса: ```rm -rf PATH/TO/FILE```
+* Установите все зависимости: ```npm install```
 * Запустите mongod
 * Запустите сервер сайта: ```node keystone```
