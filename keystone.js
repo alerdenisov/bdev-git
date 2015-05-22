@@ -184,4 +184,21 @@ keystone.start(
         }
     });
 
+var User = keystone.list('User');
+User.model.count().where('email', "test@admin.com").exec(function(err, count) {
+	if(!count) {
+		var admin = new User.model({
+			name: {
+				first: "Main",
+				last:  "Admin"
+			},
+			password: 11111,
+			isAdmin: true,
+			email: "test@admin.com"
+		});
+
+		admin.save(function(err) {});
+	}		
+});
+
 daemon.exec();
